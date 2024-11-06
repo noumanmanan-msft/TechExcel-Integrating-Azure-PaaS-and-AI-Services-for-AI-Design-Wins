@@ -34,19 +34,19 @@ def main():
             st.markdown(message["content"])
 
     # React to user input
-        if prompt := st.chat_input("How I can help you today?"):
-            with st.spinner("Awaiting the Copilot's response to your question..."):
-                # Display user message in chat message container
-                st.chat_message("user").markdown(prompt)
-                # Add user message to chat history
-                st.session_state.chat_messages.append({"role": "user", "content": prompt})
-                # Send user message to Copilot and get response
-                response = send_message_to_copilot(prompt)
-                # Display assistant response in chat message container
-                with st.chat_message("assistant"):
-                    st.markdown(response)
-                # Add assistant response to chat history
-                st.session_state.chat_messages.append({"role": "assistant", "content": response})
+    if prompt := st.chat_input("How I can help you today?"):
+        with st.spinner("Awaiting the Copilot's response to your question..."):
+            # Display user message in chat message container
+            st.chat_message("user").markdown(prompt)
+            # Add user message to chat history
+            st.session_state.chat_messages.append({"role": "user", "content": prompt})
+            # Send user message to Copilot and get response
+            response = send_message_to_copilot(prompt)
+            # Display assistant response in chat message container
+            with st.chat_message("assistant"):
+                st.markdown(response)
+            # Add assistant response to chat history
+            st.session_state.chat_messages.append({"role": "assistant", "content": response})
 
 if __name__ == "__main__":
     main()        
